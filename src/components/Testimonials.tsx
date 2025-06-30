@@ -39,7 +39,7 @@ export const Testimonials = () => {
               className="p-6 border border-border rounded-lg"
             >
               <ShieldCheck className="text-primary mb-4" />
-              <p className="text-lg mb-4">"{testimonial.quote}"</p>
+              <p className="text-lg mb-4">&quot;{testimonial.quote}&quot;</p>
               <p className="text-neutral-400 font-bold">{testimonial.author}</p>
             </motion.div>
           ))}
