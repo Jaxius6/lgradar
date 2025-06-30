@@ -1,26 +1,24 @@
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
-const Header = () => {
+export const Header = () => {
   return (
-    <header className="bg-white shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              LG Radar
-            </Link>
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-4 flex items-center md:ml-6">
-              <Link
-                href="#get-updates"
-                className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800"
-              >
-                Get Updates
-              </Link>
-            </div>
-          </div>
+    <header className="py-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-2">
+          <Image src="/logo.svg" alt="LG Radar Logo" width={40} height={40} />
+          <span className="text-xl font-bold">LG Radar</span>
+        </Link>
+        <nav className="hidden md:flex gap-4">
+          <Button variant="ghost">Pain Points</Button>
+          <Button variant="ghost">Features</Button>
+          <Button variant="ghost">Pricing</Button>
+          <Button variant="ghost">Testimonials</Button>
+        </nav>
+        <div className="flex gap-2">
+          <Button>Start Free Trial</Button>
+          <Button variant="outline">Book Demo</Button>
         </div>
       </div>
     </header>

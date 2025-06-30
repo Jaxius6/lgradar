@@ -1,24 +1,24 @@
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link";
 
-const Footer = () => {
+export const Footer = () => {
   return (
-    <footer className="bg-gray-50">
-      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center space-x-6">
-          <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-900">
-            Privacy
+    <footer className="py-8 border-t border-border">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex gap-6">
+          <Link href="/about" className="text-sm text-neutral-400 hover:text-white">
+            About Us
           </Link>
-          <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-900">
-            Terms
+          <Link href="/privacy" className="text-sm text-neutral-400 hover:text-white">
+            Privacy Policy
           </Link>
-          <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-900">
+          <Link href="/contact" className="text-sm text-neutral-400 hover:text-white">
             Contact
           </Link>
+          <span className="text-sm text-neutral-400">ABN: 12 345 678 901</span>
         </div>
-        <p className="mt-8 text-center text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} LG Radar. All rights reserved.
-        </p>
+        <div className="text-sm text-neutral-400">
+          Made in WA with ❤️
+        </div>
       </div>
     </footer>
   );

@@ -1,16 +1,22 @@
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import Benefits from '@/components/Benefits';
-import EmailCapture from '@/components/EmailCapture';
-import Footer from '@/components/Footer';
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { PainPoints } from "@/components/PainPoints";
+import { Features } from "@/components/Features";
+import { Pricing } from "@/components/Pricing";
+import { Testimonials } from "@/components/Testimonials";
+import { FinalCTA } from "@/components/FinalCTA";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main>
       <Header />
       <Hero />
-      <Benefits />
-      <EmailCapture />
+      <PainPoints />
+      <Features />
+      <Pricing />
+      <Testimonials />
+      <FinalCTA />
       <Footer />
     </main>
   );
