@@ -1,29 +1,26 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/lib/utils";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { cn } from '@/lib/utils';
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: "LG Radar - Smarter Monitoring for Local Government",
-  description: "Stay ahead of WA legislation with automatic alerts and summaries.",
+  title: 'LG Radar',
+  description: 'Smarter Monitoring for Local Government',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="dark">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          poppins.className
+          'min-h-screen bg-background font-sans antialiased',
+          inter.variable
         )}
       >
         {children}

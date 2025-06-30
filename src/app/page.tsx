@@ -1,23 +1,195 @@
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { PainPoints } from "@/components/PainPoints";
-import { Features } from "@/components/Features";
-import { Pricing } from "@/components/Pricing";
-import { Testimonials } from "@/components/Testimonials";
-import { FinalCTA } from "@/components/FinalCTA";
-import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle, Shield, Zap } from "lucide-react";
+
+const features = [
+  {
+    icon: <Zap className="h-6 w-6" />,
+    title: "Daily Email Alerts",
+    description: "Summarised WA Gazette updates in your inbox by 8am.",
+  },
+  {
+    icon: <CheckCircle className="h-6 w-6" />,
+    title: "Smart Keyword Matching",
+    description: "Highlight key terms and local relevance automatically.",
+  },
+  {
+    icon: <Shield className="h-6 w-6" />,
+    title: "Disallowance Countdown Timers",
+    description:
+      "Transparent timelines for every piece of subsidiary legislation.",
+  },
+  {
+    icon: <Zap className="h-6 w-6" />,
+    title: "Audit & Action Logs",
+    description: "Know who reviewed what — and what’s left.",
+  },
+  {
+    icon: <CheckCircle className="h-6 w-6" />,
+    title: "Shared Dashboard",
+    description: "One place for your governance team to stay aligned.",
+  },
+  {
+    icon: <Shield className="h-6 w-6" />,
+    title: "AI Summaries & Risk Ratings",
+    description: "Quickly understand what matters and what to escalate.",
+  },
+];
+
+const testimonials = [
+  {
+    quote: "We're saving hours every week. Total peace of mind.",
+    author: "CEO, Shire of Coolgardie",
+  },
+  {
+    quote: "As a smaller council, LG Radar is our virtual compliance officer.",
+    author: "CEO, Shire of Peppermint Grove",
+  },
+  {
+    quote:
+      "The email summaries are brilliant. I read them before anything else.",
+    author: "Governance Coordinator, City of Wanneroo",
+  },
+];
 
 export default function Home() {
   return (
-    <main>
-      <Header />
-      <Hero />
-      <PainPoints />
-      <Features />
-      <Pricing />
-      <Testimonials />
-      <FinalCTA />
-      <Footer />
-    </main>
+    <div className="flex flex-col min-h-screen">
+      <header className="container mx-auto px-4 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Zap className="h-8 w-8 text-primary" />
+          <h1 className="text-xl font-bold">LG Radar</h1>
+        </div>
+        <nav className="hidden md:flex gap-4">
+          <Button variant="ghost">About Us</Button>
+          <Button variant="ghost">Privacy Policy</Button>
+          <Button variant="ghost">Contact</Button>
+        </nav>
+      </header>
+
+      <main className="flex-grow">
+        <section className="container mx-auto px-4 py-20 text-center">
+          <h2 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+            Your Compliance Radar in a Sea of Red Tape
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Stay on top of WA Government Gazettes, disallowance windows, and
+            policy changes — without lifting a finger.
+          </p>
+          <div className="mt-8 flex justify-center gap-4">
+            <Button size="lg">Start Free Trial</Button>
+            <Button size="lg" variant="outline">
+              Book Demo
+            </Button>
+          </div>
+        </section>
+
+        <section className="bg-muted py-20">
+          <div className="container mx-auto px-4">
+            <h3 className="text-2xl font-bold text-center mb-10">
+              Sound Familiar?
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+              <p>Drowning in documents?</p>
+              <p>Missed a disallowance notice?</p>
+              <p>Relying on one person's inbox?</p>
+              <p>Unsure if you're fully compliant?</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-20">
+          <h3 className="text-3xl font-bold text-center mb-12">
+            What LG Radar Does
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <Card key={index}>
+                <CardHeader>
+                  {feature.icon}
+                  <CardTitle className="mt-4">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-muted py-20">
+          <div className="container mx-auto px-4">
+            <h3 className="text-3xl font-bold text-center mb-12">
+              Why Councils Trust LG Radar
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index}>
+                  <CardContent className="pt-6">
+                    <p>"{testimonial.quote}"</p>
+                    <p className="mt-4 font-semibold text-right">
+                      — {testimonial.author}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-20">
+          <div className="text-center">
+            <h3 className="text-3xl font-bold">Pricing</h3>
+            <p className="text-xl mt-4 text-muted-foreground">
+              All-Inclusive Plan
+            </p>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Card className="w-full max-w-md">
+              <CardHeader className="text-center">
+                <CardTitle className="text-5xl font-extrabold">$197</CardTitle>
+                <p className="text-muted-foreground">/month per council</p>
+                <p className="text-sm text-muted-foreground mt-2">
+                  $1,970/year (save 2 months)
+                </p>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-4">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Unlimited users
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    All core features
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Priority email support
+                  </li>
+                </ul>
+                <div className="mt-8 flex flex-col gap-4">
+                  <Button size="lg">Start Free Trial</Button>
+                  <Button size="lg" variant="outline">
+                    Request Quote PDF
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
+        <div className="container mx-auto px-4">
+          <p>Built by compliance professionals and software experts in WA.</p>
+          <p>Built in WA. Hosted in Australia. Focused on you.</p>
+          <p className="mt-4">ABN: 12 345 678 901</p>
+          <p className="mt-2">Made in WA with ❤️</p>
+        </div>
+      </footer>
+    </div>
   );
 }
