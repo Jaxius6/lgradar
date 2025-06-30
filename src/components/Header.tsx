@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export const Header = () => {
   return (
     <header className="py-4">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.svg" alt="LG Radar Logo" width={40} height={40} />
           <span className="text-xl font-bold">LG Radar</span>

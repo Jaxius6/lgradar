@@ -58,7 +58,7 @@ const featureVariants = {
 export const Features = () => {
   return (
     <section className="py-24 bg-secondary">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
           What LG Radar Delivers
         </h2>
@@ -73,7 +73,7 @@ export const Features = () => {
               variants={featureVariants}
               className="p-6 border border-border rounded-lg"
             >
-              <div className="text-primary mb-4">{feature.icon}</div>
+              <div className="text-primary mb-4 w-8 h-8">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-2">{feature.name}</h3>
               <p className="text-neutral-400">{feature.description}</p>
             </motion.div>

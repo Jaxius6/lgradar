@@ -24,7 +24,7 @@ const testimonials = [
 export const Testimonials = () => {
   return (
     <section className="py-24 bg-secondary">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
           Why Councils Love LG Radar
         </h2>
@@ -38,7 +38,7 @@ export const Testimonials = () => {
               transition={{ delay: i * 0.2, duration: 0.5 }}
               className="p-6 border border-border rounded-lg"
             >
-              <ShieldCheck className="text-primary mb-4" />
+              <ShieldCheck className="text-primary mb-4 w-8 h-8" />
               <p className="text-lg mb-4">&quot;{testimonial.quote}&quot;</p>
               <p className="text-neutral-400 font-bold">{testimonial.author}</p>
             </motion.div>

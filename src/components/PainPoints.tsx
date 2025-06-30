@@ -38,7 +38,7 @@ const cardVariants = {
 export const PainPoints = () => {
   return (
     <section className="py-24">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
           Sound Familiar?
         </h2>
