@@ -11,15 +11,18 @@ export default function ContactPage() {
           <Zap className="h-8 w-8 text-primary" />
           <h1 className="text-xl font-bold">LG Radar</h1>
         </Link>
-        <nav className="hidden md:flex gap-4">
+        <nav className="hidden md:flex gap-4 items-center">
+          <Button variant="ghost" asChild>
+            <Link href="/">Home</Link>
+          </Button>
           <Button variant="ghost" asChild>
             <Link href="/about">About Us</Link>
           </Button>
           <Button variant="ghost" asChild>
             <Link href="/privacy">Privacy Policy</Link>
           </Button>
-          <Button variant="ghost" asChild>
-            <Link href="/contact">Contact</Link>
+          <Button asChild>
+            <Link href="/auth">Sign In</Link>
           </Button>
         </nav>
       </header>
@@ -41,11 +44,11 @@ export default function ContactPage() {
                 <CardContent className="pt-6">
                   <Mail className="h-8 w-8 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Email</h3>
-                  <a 
-                    href="mailto:hello@lgradar.com.au"
+                  <a
+                    href="mailto:lgradarwa@gmail.com.au"
                     className="text-primary hover:underline"
                   >
-                    hello@lgradar.com.au
+                    lgradarwa@gmail.com.au
                   </a>
                 </CardContent>
               </Card>
@@ -54,11 +57,11 @@ export default function ContactPage() {
                 <CardContent className="pt-6">
                   <Phone className="h-8 w-8 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Phone</h3>
-                  <a 
-                    href="tel:+61890000000"
+                  <a
+                    href="tel:+61427931745"
                     className="text-primary hover:underline"
                   >
-                    +61 8 9000 0000
+                    +61 427 931 745
                   </a>
                 </CardContent>
               </Card>
@@ -67,7 +70,7 @@ export default function ContactPage() {
                 <CardContent className="pt-6">
                   <MapPin className="h-8 w-8 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Location</h3>
-                  <p className="text-muted-foreground">Perth, WA</p>
+                  <p className="text-muted-foreground">West Perth, WA</p>
                 </CardContent>
               </Card>
             </div>
@@ -143,9 +146,8 @@ export default function ContactPage() {
 
       <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p>Built by compliance professionals and software experts in WA.</p>
-          <p>Built in WA. Hosted in Australia. Focused on you.</p>
-          <p className="mt-4">ABN: 12 345 678 901</p>
+          <p>© 2025 LG Radar. All rights reserved.</p>
+          <p className="mt-2">ABN: 803 402 939 44</p>
           <p className="mt-2">Made in WA with ❤️</p>
         </div>
       </footer>

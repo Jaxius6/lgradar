@@ -34,15 +34,18 @@ export default function PrivacyPage() {
           <Zap className="h-8 w-8 text-primary" />
           <h1 className="text-xl font-bold">LG Radar</h1>
         </Link>
-        <nav className="hidden md:flex gap-4">
+        <nav className="hidden md:flex gap-4 items-center">
+          <Button variant="ghost" asChild>
+            <Link href="/">Home</Link>
+          </Button>
           <Button variant="ghost" asChild>
             <Link href="/about">About Us</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/privacy">Privacy Policy</Link>
-          </Button>
-          <Button variant="ghost" asChild>
             <Link href="/contact">Contact</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/auth">Sign In</Link>
           </Button>
         </nav>
       </header>
@@ -274,9 +277,8 @@ export default function PrivacyPage() {
 
       <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p>Built by compliance professionals and software experts in WA.</p>
-          <p>Built in WA. Hosted in Australia. Focused on you.</p>
-          <p className="mt-4">ABN: 12 345 678 901</p>
+          <p>© 2025 LG Radar. All rights reserved.</p>
+          <p className="mt-2">ABN: 803 402 939 44</p>
           <p className="mt-2">Made in WA with ❤️</p>
         </div>
       </footer>

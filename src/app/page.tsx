@@ -62,7 +62,7 @@ export default function Home() {
           <Zap className="h-8 w-8 text-primary" />
           <h1 className="text-xl font-bold">LG Radar</h1>
         </div>
-        <nav className="hidden md:flex gap-4">
+        <nav className="hidden md:flex gap-4 items-center">
           <Button variant="ghost" asChild>
             <Link href="/about">About Us</Link>
           </Button>
@@ -72,12 +72,15 @@ export default function Home() {
           <Button variant="ghost" asChild>
             <Link href="/contact">Contact</Link>
           </Button>
+          <Button asChild>
+            <Link href="/auth">Sign In</Link>
+          </Button>
         </nav>
       </header>
 
       <main className="flex-grow">
         <section className="container mx-auto px-4 py-12 text-center">
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <div className="w-64 h-64">
               <RadarAnimation />
             </div>
@@ -113,17 +116,31 @@ export default function Home() {
           <h3 className="text-3xl font-bold text-center mb-12">
             What LG Radar Does
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {features.map((feature, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  {feature.icon}
-                  <CardTitle className="mt-4">{feature.title}</CardTitle>
+              <Card key={index} className="p-8 h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-6">
+                    <div className="w-24 h-24">
+                      <RadarAnimation />
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl mb-4">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground text-lg leading-relaxed">
                     {feature.description}
                   </p>
+                  <div className="mt-6 p-4 bg-muted rounded-lg">
+                    <p className="text-sm text-muted-foreground italic">
+                      {index === 0 && "Never miss another critical deadline with automated daily summaries delivered straight to your inbox."}
+                      {index === 1 && "Our AI automatically identifies content relevant to your council, highlighting key terms and local implications."}
+                      {index === 2 && "Visual countdown timers for every piece of subsidiary legislation, ensuring you never miss a disallowance window."}
+                      {index === 3 && "Complete transparency with detailed logs showing who reviewed what and when, plus clear action items."}
+                      {index === 4 && "Centralized dashboard where your entire governance team can collaborate and stay aligned on compliance matters."}
+                      {index === 5 && "Advanced AI provides intelligent summaries and risk assessments, helping you prioritize what needs immediate attention."}
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -157,12 +174,12 @@ export default function Home() {
               Start free, upgrade when ready
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Card className="relative">
               <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Free Trial</CardTitle>
+                <CardTitle className="text-2xl">Free</CardTitle>
                 <div className="text-4xl font-extrabold mt-4">$0</div>
-                <p className="text-muted-foreground">30 days free</p>
+                <p className="text-muted-foreground">30 days free trial</p>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
@@ -198,11 +215,48 @@ export default function Home() {
                 </span>
               </div>
               <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Pro Plan</CardTitle>
+                <CardTitle className="text-2xl">Monthly</CardTitle>
                 <div className="text-4xl font-extrabold mt-4">$197</div>
                 <p className="text-muted-foreground">/month per council</p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  $1,970/year (save 2 months)
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-4">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Unlimited users
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    All core features
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Priority email support
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Advanced analytics
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Custom integrations
+                  </li>
+                </ul>
+                <div className="mt-8">
+                  <Button size="lg" className="w-full" asChild>
+                    <Link href="/contact">Get Started</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="relative">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Annual</CardTitle>
+                <div className="text-4xl font-extrabold mt-4">$1,970</div>
+                <p className="text-muted-foreground">/year per council</p>
+                <p className="text-sm text-green-600 font-medium mt-2">
+                  Save 2 months!
                 </p>
               </CardHeader>
               <CardContent>
@@ -228,12 +282,9 @@ export default function Home() {
                     Custom integrations
                   </li>
                 </ul>
-                <div className="mt-8 flex flex-col gap-4">
+                <div className="mt-8">
                   <Button size="lg" className="w-full" asChild>
                     <Link href="/contact">Get Started</Link>
-                  </Button>
-                  <Button size="lg" variant="outline" className="w-full" asChild>
-                    <Link href="/contact">Request Quote PDF</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -244,7 +295,8 @@ export default function Home() {
 
       <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p className="mt-4">ABN: 803 402 939 44</p>
+          <p>© 2025 LG Radar. All rights reserved.</p>
+          <p className="mt-2">ABN: 803 402 939 44</p>
           <p className="mt-2">Made in WA with ❤️</p>
         </div>
       </footer>
