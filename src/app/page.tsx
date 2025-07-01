@@ -92,8 +92,8 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <p>Drowning in documents?</p>
               <p>Missed a disallowance notice?</p>
-              <p>Relying on one person's inbox?</p>
-              <p>Unsure if you're fully compliant?</p>
+              <p>Relying on one person&apos;s inbox?</p>
+              <p>Unsure if you&apos;re fully compliant?</p>
             </div>
           </div>
         </section>
