@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Shield, Zap } from "lucide-react";
+import Link from "next/link";
+import RadarAnimation from "@/components/RadarAnimation";
 
 const features = [
   {
@@ -61,9 +63,15 @@ export default function Home() {
           <h1 className="text-xl font-bold">LG Radar</h1>
         </div>
         <nav className="hidden md:flex gap-4">
-          <Button variant="ghost">About Us</Button>
-          <Button variant="ghost">Privacy Policy</Button>
-          <Button variant="ghost">Contact</Button>
+          <Button variant="ghost" asChild>
+            <Link href="/about">About Us</Link>
+          </Button>
+          <Button variant="ghost" asChild>
+            <Link href="/privacy">Privacy Policy</Link>
+          </Button>
+          <Button variant="ghost" asChild>
+            <Link href="/contact">Contact</Link>
+          </Button>
         </nav>
       </header>
 
@@ -77,9 +85,11 @@ export default function Home() {
             policy changes — without lifting a finger.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button size="lg">Start Free Trial</Button>
-            <Button size="lg" variant="outline">
-              Book Demo
+            <Button size="lg" asChild>
+              <Link href="/contact">Start Free Trial</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/contact">Book Demo</Link>
             </Button>
           </div>
         </section>
@@ -89,11 +99,16 @@ export default function Home() {
             <h3 className="text-2xl font-bold text-center mb-10">
               Sound Familiar?
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <p>Drowning in documents?</p>
-              <p>Missed a disallowance notice?</p>
-              <p>Relying on one person&apos;s inbox?</p>
-              <p>Unsure if you&apos;re fully compliant?</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                <p>Drowning in documents?</p>
+                <p>Missed a disallowance notice?</p>
+                <p>Relying on one person&apos;s inbox?</p>
+                <p>Unsure if you&apos;re fully compliant?</p>
+              </div>
+              <div className="flex justify-center">
+                <RadarAnimation />
+              </div>
             </div>
           </div>
         </section>
@@ -171,9 +186,11 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-8 flex flex-col gap-4">
-                  <Button size="lg">Start Free Trial</Button>
-                  <Button size="lg" variant="outline">
-                    Request Quote PDF
+                  <Button size="lg" asChild>
+                    <Link href="/contact">Start Free Trial</Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="/contact">Request Quote PDF</Link>
                   </Button>
                 </div>
               </CardContent>
