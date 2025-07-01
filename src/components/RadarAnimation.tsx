@@ -7,7 +7,7 @@ const RadarAnimation = () => {
   return (
     <div className="flex justify-center items-center w-full max-w-md mx-auto">
       <DotLottieReact
-        src="https://lottie.host/7f727550-871e-48dc-b952-1821f7df02aa/x74Az58f0U.lottie"
+        src="https://lottie.host/928a1b30-18eb-477c-aade-65a634d53c79/IZ9F3W9KQR.lottie"
         loop
         autoplay
         className="w-full h-auto"

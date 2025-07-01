@@ -96,19 +96,19 @@ export default function Home() {
 
         <section className="bg-muted py-20">
           <div className="container mx-auto px-4">
+            <div className="flex justify-center mb-10">
+              <div className="w-64 h-64">
+                <RadarAnimation />
+              </div>
+            </div>
             <h3 className="text-2xl font-bold text-center mb-10">
               Sound Familiar?
             </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-                <p>Drowning in documents?</p>
-                <p>Missed a disallowance notice?</p>
-                <p>Relying on one person&apos;s inbox?</p>
-                <p>Unsure if you&apos;re fully compliant?</p>
-              </div>
-              <div className="flex justify-center">
-                <RadarAnimation />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+              <p>Drowning in documents?</p>
+              <p>Missed a disallowance notice?</p>
+              <p>Relying on one person&apos;s inbox?</p>
+              <p>Unsure if you&apos;re fully compliant?</p>
             </div>
           </div>
         </section>
