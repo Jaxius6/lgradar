@@ -92,9 +92,6 @@ export default function Home() {
             <Button size="lg" asChild>
               <Link href="/contact">Start Free Trial</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/contact">Book Demo</Link>
-            </Button>
           </div>
         </section>
 
@@ -154,16 +151,55 @@ export default function Home() {
         </section>
 
         <section className="container mx-auto px-4 py-20">
-          <div className="text-center">
-            <h3 className="text-3xl font-bold">Pricing</h3>
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold">Pricing Plans</h3>
             <p className="text-xl mt-4 text-muted-foreground">
-              All-Inclusive Plan
+              Start free, upgrade when ready
             </p>
           </div>
-          <div className="flex justify-center mt-8">
-            <Card className="w-full max-w-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="relative">
               <CardHeader className="text-center">
-                <CardTitle className="text-5xl font-extrabold">$197</CardTitle>
+                <CardTitle className="text-2xl">Free Trial</CardTitle>
+                <div className="text-4xl font-extrabold mt-4">$0</div>
+                <p className="text-muted-foreground">30 days free</p>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-4">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Full access to all features
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Up to 3 users
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Email support
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    No credit card required
+                  </li>
+                </ul>
+                <div className="mt-8">
+                  <Button size="lg" className="w-full" asChild>
+                    <Link href="/contact">Start Free Trial</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="relative border-primary">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                  Most Popular
+                </span>
+              </div>
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Pro Plan</CardTitle>
+                <div className="text-4xl font-extrabold mt-4">$197</div>
                 <p className="text-muted-foreground">/month per council</p>
                 <p className="text-sm text-muted-foreground mt-2">
                   $1,970/year (save 2 months)
@@ -183,12 +219,20 @@ export default function Home() {
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Priority email support
                   </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Advanced analytics
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Custom integrations
+                  </li>
                 </ul>
                 <div className="mt-8 flex flex-col gap-4">
-                  <Button size="lg" asChild>
-                    <Link href="/contact">Start Free Trial</Link>
+                  <Button size="lg" className="w-full" asChild>
+                    <Link href="/contact">Get Started</Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button size="lg" variant="outline" className="w-full" asChild>
                     <Link href="/contact">Request Quote PDF</Link>
                   </Button>
                 </div>
@@ -200,9 +244,7 @@ export default function Home() {
 
       <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p>Built by compliance professionals and software experts in WA.</p>
-          <p>Built in WA. Hosted in Australia. Focused on you.</p>
-          <p className="mt-4">ABN: 12 345 678 901</p>
+          <p className="mt-4">ABN: 803 402 939 44</p>
           <p className="mt-2">Made in WA with ❤️</p>
         </div>
       </footer>

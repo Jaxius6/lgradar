@@ -1,41 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Users, Target, Award } from "lucide-react";
+import { Zap } from "lucide-react";
 import Link from "next/link";
 
 const teamMembers = [
   {
-    name: "Sarah Chen",
-    role: "CEO & Co-Founder",
-    description: "Former local government compliance officer with 15+ years experience in WA councils.",
+    name: "Craig",
+    role: "Co-Founder",
+    description: "The political genius behind LG Radar. Deep understanding of local government processes and regulatory landscapes.",
   },
   {
-    name: "Michael Torres",
-    role: "CTO & Co-Founder", 
-    description: "Software architect specializing in government technology and regulatory compliance systems.",
-  },
-  {
-    name: "Dr. Emma Wilson",
-    role: "Head of Compliance",
-    description: "Legal expert in Australian local government law and regulatory frameworks.",
-  },
-];
-
-const values = [
-  {
-    icon: <Target className="h-6 w-6" />,
-    title: "Precision",
-    description: "We understand that in compliance, accuracy isn't optional—it's everything.",
-  },
-  {
-    icon: <Users className="h-6 w-6" />,
-    title: "Partnership",
-    description: "We're not just a vendor; we're your compliance team's trusted ally.",
-  },
-  {
-    icon: <Award className="h-6 w-6" />,
-    title: "Excellence",
-    description: "Built by compliance professionals, for compliance professionals.",
+    name: "Jack",
+    role: "Co-Founder",
+    description: "The technical wizard who brings the vision to life. Expert in building scalable compliance monitoring systems.",
   },
 ];
 
@@ -106,23 +83,6 @@ export default function AboutPage() {
                   giving them the confidence to focus on strategic initiatives.
                 </p>
               </div>
-            </div>
-          </div>
-
-          <div className="mb-20">
-            <h3 className="text-3xl font-bold text-center mb-12">Our Values</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {values.map((value, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    {value.icon}
-                    <CardTitle className="mt-4">{value.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{value.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
             </div>
           </div>
 
