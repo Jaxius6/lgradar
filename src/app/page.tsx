@@ -76,13 +76,17 @@ export default function Home() {
       </header>
 
       <main className="flex-grow">
-        <section className="container mx-auto px-4 py-20 text-center">
+        <section className="container mx-auto px-4 py-12 text-center">
+          <div className="flex justify-center mb-8">
+            <div className="w-64 h-64">
+              <RadarAnimation />
+            </div>
+          </div>
           <h2 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Your Compliance Radar in a Sea of Red Tape
+            Real-time legislative tracking for WA councils
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Stay on top of WA Government Gazettes, disallowance windows, and
-            policy changes — without lifting a finger.
+            Stay on top of Government Gazettes, Policy Changes and Disallowance Windows — without lifting a finger.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button size="lg" asChild>
@@ -96,11 +100,6 @@ export default function Home() {
 
         <section className="bg-muted py-20">
           <div className="container mx-auto px-4">
-            <div className="flex justify-center mb-10">
-              <div className="w-64 h-64">
-                <RadarAnimation />
-              </div>
-            </div>
             <h3 className="text-2xl font-bold text-center mb-10">
               Sound Familiar?
             </h3>
