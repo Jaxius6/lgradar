@@ -59,7 +59,6 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <header className="container mx-auto px-4 py-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <Zap className="h-8 w-8 text-primary" />
           <h1 className="text-xl font-bold">LG Radar</h1>
         </Link>
         <nav className="hidden md:flex gap-4 items-center">
@@ -73,7 +72,7 @@ export default function Home() {
             <Link href="/contact">Contact</Link>
           </Button>
           <Button asChild>
-            <Link href="/auth">Sign In</Link>
+            <Link href="https://wa.lgradar.com.au">Sign In</Link>
           </Button>
         </nav>
       </header>
@@ -81,7 +80,7 @@ export default function Home() {
       <main className="flex-grow">
         <section className="container mx-auto px-4 py-12 text-center">
           <div className="flex justify-center -mb-8">
-            <div className="w-64 h-64">
+            <div className="w-80 h-80">
               <RadarAnimation />
             </div>
           </div>
@@ -105,19 +104,19 @@ export default function Home() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-2">📄</div>
+                <div className="text-4xl mb-4">📄</div>
                 <p>Drowning in documents?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-2">⏰</div>
+                <div className="text-4xl mb-4">⏰</div>
                 <p>Missed a disallowance notice?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-2">📧</div>
+                <div className="text-4xl mb-4">📧</div>
                 <p>Relying on one person&apos;s inbox?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-2">❓</div>
+                <div className="text-4xl mb-4">❓</div>
                 <p>Unsure if you&apos;re fully compliant?</p>
               </div>
             </div>
@@ -164,7 +163,7 @@ export default function Home() {
                 <Card key={index}>
                   <CardContent className="pt-6">
                     <div className="flex justify-center mb-4">
-                      <Crown className="h-8 w-8 text-primary" />
+                      <Crown className="h-16 w-16 text-primary" />
                     </div>
                     <p>&quot;{testimonial.quote}&quot;</p>
                     <p className="mt-4 font-semibold text-right">
@@ -196,6 +195,10 @@ export default function Home() {
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Basic gazette summaries
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Up to 3 staff accounts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
@@ -269,15 +272,23 @@ export default function Home() {
                 <ul className="space-y-4">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Everything from Monthly plan
+                    Unlimited staff accounts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    But you pay for 10 months only 
+                    Full gazette lists & summaries
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Priority Support
+                    Disallowance countdowns
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Keyword alerts
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Audit logs & CSV export
                   </li>
                 </ul>
                 <div className="mt-8">
@@ -296,7 +307,7 @@ export default function Home() {
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Have questions or need a custom solution? Our team is here to help you streamline your council&apos;s compliance processes.
             </p>
-            <Button size="lg" variant="outline" className="transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
