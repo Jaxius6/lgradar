@@ -294,7 +294,7 @@ export default function Home() {
           <div className="container mx-auto px-4 text-center">
             <h3 className="text-3xl font-bold mb-4">Ready to Get Started?</h3>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Have questions or need a custom solution? Our team is here to help you streamline your council's compliance processes.
+              Have questions or need a custom solution? Our team is here to help you streamline your council&apos;s compliance processes.
             </p>
             <Button size="lg" variant="outline" className="transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
               <Link href="/contact">Contact Us</Link>
