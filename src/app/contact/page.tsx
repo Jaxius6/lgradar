@@ -25,6 +25,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showForm, setShowForm] = useState(true);
 
   // Generate a simple math captcha
   const generateCaptcha = () => {
@@ -130,14 +131,7 @@ export default function ContactPage() {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          council: '',
-          message: '',
-          captchaAnswer: ''
-        });
-        generateCaptcha(); // Generate new captcha
+        setShowForm(false); // Hide the form on successful submission
         triggerConfetti(); // Trigger confetti animation
       } else {
         setSubmitStatus('error');
@@ -228,112 +222,142 @@ export default function ContactPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-center">Send us a Message</CardTitle>
+                <CardTitle className="text-center">
+                  {showForm ? 'Send us a Message' : 'Message Sent!'}
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                {submitStatus === 'success' && (
-                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
-                    <p className="text-green-800 text-center">
-                      Thank you! Your message has been sent successfully.
-                    </p>
+                {submitStatus === 'success' && !showForm && (
+                  <div className="text-center py-8">
+                    <div className="mb-6 p-6 bg-green-50 border border-green-200 rounded-lg">
+                      <div className="text-6xl mb-4">✅</div>
+                      <h3 className="text-xl font-semibold text-green-800 mb-2">
+                        Thank you for reaching out!
+                      </h3>
+                      <p className="text-green-700 mb-4">
+                        Your message has been sent successfully. We'll get back to you within 24 hours.
+                      </p>
+                      <Button
+                        onClick={() => {
+                          setShowForm(true);
+                          setSubmitStatus('idle');
+                          setFormData({
+                            name: '',
+                            email: '',
+                            council: '',
+                            message: '',
+                            captchaAnswer: ''
+                          });
+                          generateCaptcha();
+                        }}
+                        variant="outline"
+                        className="mt-2"
+                      >
+                        Send Another Message
+                      </Button>
+                    </div>
                   </div>
                 )}
 
-                {submitStatus === 'error' && (
-                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
-                    <p className="text-red-800 text-center">
-                      {errorMessage}
-                    </p>
-                  </div>
+                {showForm && (
+                  <>
+                    {submitStatus === 'error' && (
+                      <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+                        <p className="text-red-800 text-center">
+                          {errorMessage}
+                        </p>
+                      </div>
+                    )}
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium mb-2">
+                            Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium mb-2">
+                            Email *
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="council" className="block text-sm font-medium mb-2">
+                          Council/Organization
+                        </label>
+                        <input
+                          type="text"
+                          id="council"
+                          name="council"
+                          value={formData.council}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium mb-2">
+                          Message *
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={5}
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                          placeholder="Tell us how we can help..."
+                        ></textarea>
+                      </div>
+
+                      <div>
+                        <label htmlFor="captchaAnswer" className="block text-sm font-medium mb-2">
+                          Human Verification: What is {captcha.question}? *
+                        </label>
+                        <input
+                          type="number"
+                          id="captchaAnswer"
+                          name="captchaAnswer"
+                          value={formData.captchaAnswer}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                          placeholder="Enter the answer"
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </Button>
+                    </form>
+                  </>
                 )}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="council" className="block text-sm font-medium mb-2">
-                      Council/Organization
-                    </label>
-                    <input
-                      type="text"
-                      id="council"
-                      name="council"
-                      value={formData.council}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="Tell us how we can help..."
-                    ></textarea>
-                  </div>
-
-                  <div>
-                    <label htmlFor="captchaAnswer" className="block text-sm font-medium mb-2">
-                      Human Verification: What is {captcha.question}? *
-                    </label>
-                    <input
-                      type="number"
-                      id="captchaAnswer"
-                      name="captchaAnswer"
-                      value={formData.captchaAnswer}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="Enter the answer"
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="w-full" 
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
               </CardContent>
             </Card>
           </div>
