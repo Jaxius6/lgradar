@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Zap, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import confetti from 'canvas-confetti';
 
 interface CaptchaData {
   question: string;
@@ -63,6 +64,42 @@ export default function ContactPage() {
     generateCaptcha();
   }, []);
 
+  // Function to trigger confetti animation
+  const triggerConfetti = () => {
+    // Create multiple confetti bursts for a celebration effect
+    const duration = 3000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval: NodeJS.Timeout = setInterval(function() {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      
+      // Left side confetti
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      });
+      
+      // Right side confetti
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      });
+    }, 250);
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -101,6 +138,7 @@ export default function ContactPage() {
           captchaAnswer: ''
         });
         generateCaptcha(); // Generate new captcha
+        triggerConfetti(); // Trigger confetti animation
       } else {
         setSubmitStatus('error');
         setErrorMessage(result.error || 'Failed to submit form');

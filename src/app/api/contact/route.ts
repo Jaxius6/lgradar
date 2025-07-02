@@ -21,31 +21,32 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Prepare webhook payload
-    const webhookPayload = {
+    // Prepare webhook URL with query parameters
+    const webhookBaseUrl = 'https://n8n.jaxius.net/webhook/9b5def4e-cbd1-4512-8fdd-b8f10f300d74';
+    const webhookParams = new URLSearchParams({
       timestamp: new Date().toISOString(),
-      form_data: {
-        name,
-        email,
-        council: council || '',
-        message
-      },
+      name: name,
+      email: email,
+      council: council || '',
+      message: message,
       source: 'LG Radar Contact Form',
-      ip_address: request.headers.get('x-forwarded-for') || 
-                  request.headers.get('x-real-ip') || 
+      ip_address: request.headers.get('x-forwarded-for') ||
+                  request.headers.get('x-real-ip') ||
                   'unknown'
-    };
-
-    // Send to webhook
-    const webhookUrl = 'https://n8n.jaxius.net/webhook-test/9b5def4e-cbd1-4512-8fdd-b8f10f300d74';
-    
-    const webhookResponse = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(webhookPayload),
     });
+
+    const webhookUrl = `${webhookBaseUrl}?${webhookParams.toString()}`;
+    
+    // Log the webhook URL for debugging
+    console.log('Webhook URL:', webhookUrl);
+    
+    // Send to webhook using GET request
+    const webhookResponse = await fetch(webhookUrl, {
+      method: 'GET',
+    });
+
+    console.log('Webhook response status:', webhookResponse.status);
+    console.log('Webhook response text:', await webhookResponse.text());
 
     if (!webhookResponse.ok) {
       console.error('Webhook failed:', webhookResponse.status, webhookResponse.statusText);
