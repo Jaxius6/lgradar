@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Shield, Zap } from "lucide-react";
+import { CheckCircle, Shield, Zap, Crown } from "lucide-react";
 import Link from "next/link";
 import RadarAnimation from "@/components/RadarAnimation";
 
@@ -92,7 +92,7 @@ export default function Home() {
             Stay on top of Government Gazettes, Policy Changes and Disallowance Windows — without lifting a finger.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button size="lg" asChild>
+            <Button size="lg" className="transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
               <Link href="https://wa.lgradar.com.au">Start Free Trial</Link>
             </Button>
           </div>
@@ -105,19 +105,19 @@ export default function Home() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-4">📄</div>
+                <div className="text-6xl mb-2">📄</div>
                 <p>Drowning in documents?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-4">⏰</div>
+                <div className="text-6xl mb-2">⏰</div>
                 <p>Missed a disallowance notice?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-4">📧</div>
+                <div className="text-6xl mb-2">📧</div>
                 <p>Relying on one person&apos;s inbox?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-4">❓</div>
+                <div className="text-6xl mb-2">❓</div>
                 <p>Unsure if you&apos;re fully compliant?</p>
               </div>
             </div>
@@ -163,6 +163,9 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <Card key={index}>
                   <CardContent className="pt-6">
+                    <div className="flex justify-center mb-4">
+                      <Crown className="h-8 w-8 text-primary" />
+                    </div>
                     <p>&quot;{testimonial.quote}&quot;</p>
                     <p className="mt-4 font-semibold text-right">
                       — {testimonial.author}
@@ -196,10 +199,6 @@ export default function Home() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Up to 3 staff accounts
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Email alerts
                   </li>
                   <li className="flex items-center">
@@ -208,7 +207,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-8">
-                  <Button size="lg" className="w-full" asChild>
+                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
                     <Link href="https://wa.lgradar.com.au">Start Free Trial</Link>
                   </Button>
                 </div>
@@ -250,7 +249,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-8">
-                  <Button size="lg" className="w-full" asChild>
+                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
                     <Link href="https://wa.lgradar.com.au">Sign up</Link>
                   </Button>
                 </div>
@@ -270,32 +269,36 @@ export default function Home() {
                 <ul className="space-y-4">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Unlimited staff accounts
+                    Everything from Monthly plan
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Full gazette lists & summaries
+                    But you pay for 10 months only 
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Disallowance countdowns
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Keyword alerts
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Audit logs & CSV export
+                    Priority Support
                   </li>
                 </ul>
                 <div className="mt-8">
-                  <Button size="lg" className="w-full" asChild>
+                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
                     <Link href="https://wa.lgradar.com.au">Save now</Link>
                   </Button>
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </section>
+
+        <section className="bg-muted py-20">
+          <div className="container mx-auto px-4 text-center">
+            <h3 className="text-3xl font-bold mb-4">Ready to Get Started?</h3>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Have questions or need a custom solution? Our team is here to help you streamline your council's compliance processes.
+            </p>
+            <Button size="lg" variant="outline" className="transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
+              <Link href="/contact">Contact Us</Link>
+            </Button>
           </div>
         </section>
       </main>
