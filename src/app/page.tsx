@@ -58,10 +58,10 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <Zap className="h-8 w-8 text-primary" />
           <h1 className="text-xl font-bold">LG Radar</h1>
-        </div>
+        </Link>
         <nav className="hidden md:flex gap-4 items-center">
           <Button variant="ghost" asChild>
             <Link href="/about">About Us</Link>
@@ -80,7 +80,7 @@ export default function Home() {
 
       <main className="flex-grow">
         <section className="container mx-auto px-4 py-12 text-center">
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-2">
             <div className="w-64 h-64">
               <RadarAnimation />
             </div>
@@ -104,10 +104,10 @@ export default function Home() {
               Sound Familiar?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <p>Drowning in documents?</p>
-              <p>Missed a disallowance notice?</p>
-              <p>Relying on one person&apos;s inbox?</p>
-              <p>Unsure if you&apos;re fully compliant?</p>
+              <p>📄 Drowning in documents?</p>
+              <p>⏰ Missed a disallowance notice?</p>
+              <p>📧 Relying on one person&apos;s inbox?</p>
+              <p>❓ Unsure if you&apos;re fully compliant?</p>
             </div>
           </div>
         </section>
@@ -129,18 +129,13 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    {feature.description}
+                    {index === 0 && "Never miss another critical deadline with automated daily summaries delivered straight to your inbox. Our AI automatically identifies content relevant to your council, highlighting key terms and local implications."}
+                    {index === 1 && "Our AI automatically identifies content relevant to your council, highlighting key terms and local implications. Advanced algorithms ensure you only see what matters to your specific council area."}
+                    {index === 2 && "Visual countdown timers for every piece of subsidiary legislation, ensuring you never miss a disallowance window. Transparent timelines keep your team informed and prepared."}
+                    {index === 3 && "Complete transparency with detailed logs showing who reviewed what and when, plus clear action items. Export reports and maintain comprehensive audit trails for compliance."}
+                    {index === 4 && "Centralized dashboard where your entire governance team can collaborate and stay aligned on compliance matters. Real-time updates keep everyone informed and accountable."}
+                    {index === 5 && "Advanced AI provides intelligent summaries and risk assessments, helping you prioritize what needs immediate attention. Smart categorization and risk scoring streamline your workflow."}
                   </p>
-                  <div className="mt-6 p-4 bg-muted rounded-lg">
-                    <p className="text-sm text-muted-foreground italic">
-                      {index === 0 && "Never miss another critical deadline with automated daily summaries delivered straight to your inbox."}
-                      {index === 1 && "Our AI automatically identifies content relevant to your council, highlighting key terms and local implications."}
-                      {index === 2 && "Visual countdown timers for every piece of subsidiary legislation, ensuring you never miss a disallowance window."}
-                      {index === 3 && "Complete transparency with detailed logs showing who reviewed what and when, plus clear action items."}
-                      {index === 4 && "Centralized dashboard where your entire governance team can collaborate and stay aligned on compliance matters."}
-                      {index === 5 && "Advanced AI provides intelligent summaries and risk assessments, helping you prioritize what needs immediate attention."}
-                    </p>
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -185,15 +180,15 @@ export default function Home() {
                 <ul className="space-y-4">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Full access to all features
+                    Basic gazette summaries
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Up to 3 users
+                    Up to 3 staff accounts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Email support
+                    Email alerts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
@@ -223,28 +218,28 @@ export default function Home() {
                 <ul className="space-y-4">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Unlimited users
+                    Unlimited staff accounts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    All core features
+                    Full gazette lists & summaries
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Priority email support
+                    Disallowance countdowns
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Advanced analytics
+                    Keyword alerts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Custom integrations
+                    Audit logs & CSV export
                   </li>
                 </ul>
                 <div className="mt-8">
                   <Button size="lg" className="w-full" asChild>
-                    <Link href="/contact">Get Started</Link>
+                    <Link href="/contact">Sign up and save now</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -263,28 +258,28 @@ export default function Home() {
                 <ul className="space-y-4">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Unlimited users
+                    Unlimited staff accounts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    All core features
+                    Full gazette lists & summaries
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Priority email support
+                    Disallowance countdowns
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Advanced analytics
+                    Keyword alerts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                    Custom integrations
+                    Audit logs & CSV export
                   </li>
                 </ul>
                 <div className="mt-8">
                   <Button size="lg" className="w-full" asChild>
-                    <Link href="/contact">Get Started</Link>
+                    <Link href="/contact">Sign up and save now</Link>
                   </Button>
                 </div>
               </CardContent>
