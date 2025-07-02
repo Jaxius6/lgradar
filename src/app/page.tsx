@@ -33,7 +33,7 @@ const features = [
   },
   {
     icon: <Shield className="h-6 w-6" />,
-    title: "AI Summaries & Risk Ratings",
+    title: "Smart Summaries & Risk Ratings",
     description: "Quickly understand what matters and what to escalate.",
   },
 ];
@@ -80,7 +80,7 @@ export default function Home() {
 
       <main className="flex-grow">
         <section className="container mx-auto px-4 py-12 text-center">
-          <div className="flex justify-center mb-2">
+          <div className="flex justify-center -mb-8">
             <div className="w-64 h-64">
               <RadarAnimation />
             </div>
@@ -93,7 +93,7 @@ export default function Home() {
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button size="lg" asChild>
-              <Link href="/contact">Start Free Trial</Link>
+              <Link href="https://wa.lgradar.com.au">Start Free Trial</Link>
             </Button>
           </div>
         </section>
@@ -104,10 +104,22 @@ export default function Home() {
               Sound Familiar?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <p>📄 Drowning in documents?</p>
-              <p>⏰ Missed a disallowance notice?</p>
-              <p>📧 Relying on one person&apos;s inbox?</p>
-              <p>❓ Unsure if you&apos;re fully compliant?</p>
+              <div className="flex flex-col items-center">
+                <div className="text-6xl mb-4">📄</div>
+                <p>Drowning in documents?</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-6xl mb-4">⏰</div>
+                <p>Missed a disallowance notice?</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-6xl mb-4">📧</div>
+                <p>Relying on one person&apos;s inbox?</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-6xl mb-4">❓</div>
+                <p>Unsure if you&apos;re fully compliant?</p>
+              </div>
             </div>
           </div>
         </section>
@@ -129,12 +141,12 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    {index === 0 && "Never miss another critical deadline with automated daily summaries delivered straight to your inbox. Our AI automatically identifies content relevant to your council, highlighting key terms and local implications."}
-                    {index === 1 && "Our AI automatically identifies content relevant to your council, highlighting key terms and local implications. Advanced algorithms ensure you only see what matters to your specific council area."}
+                    {index === 0 && "Never miss another critical deadline with automated daily summaries delivered straight to your inbox. Smart filtering identifies content relevant to your council, highlighting key terms and local implications."}
+                    {index === 1 && "Smart filtering identifies content relevant to your council, highlighting key terms and local implications. Advanced algorithms ensure you only see what matters to your specific council area."}
                     {index === 2 && "Visual countdown timers for every piece of subsidiary legislation, ensuring you never miss a disallowance window. Transparent timelines keep your team informed and prepared."}
                     {index === 3 && "Complete transparency with detailed logs showing who reviewed what and when, plus clear action items. Export reports and maintain comprehensive audit trails for compliance."}
                     {index === 4 && "Centralized dashboard where your entire governance team can collaborate and stay aligned on compliance matters. Real-time updates keep everyone informed and accountable."}
-                    {index === 5 && "Advanced AI provides intelligent summaries and risk assessments, helping you prioritize what needs immediate attention. Smart categorization and risk scoring streamline your workflow."}
+                    {index === 5 && "Intelligent summaries and risk assessments help you prioritize what needs immediate attention. Smart categorization and risk scoring streamline your workflow."}
                   </p>
                 </CardContent>
               </Card>
@@ -197,7 +209,7 @@ export default function Home() {
                 </ul>
                 <div className="mt-8">
                   <Button size="lg" className="w-full" asChild>
-                    <Link href="/contact">Start Free Trial</Link>
+                    <Link href="https://wa.lgradar.com.au">Start Free Trial</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -239,7 +251,7 @@ export default function Home() {
                 </ul>
                 <div className="mt-8">
                   <Button size="lg" className="w-full" asChild>
-                    <Link href="/contact">Sign up and save now</Link>
+                    <Link href="https://wa.lgradar.com.au">Sign up</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -279,7 +291,7 @@ export default function Home() {
                 </ul>
                 <div className="mt-8">
                   <Button size="lg" className="w-full" asChild>
-                    <Link href="/contact">Sign up and save now</Link>
+                    <Link href="https://wa.lgradar.com.au">Save now</Link>
                   </Button>
                 </div>
               </CardContent>
