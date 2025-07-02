@@ -1,9 +1,122 @@
+'use client';
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Zap, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+interface CaptchaData {
+  question: string;
+  answer: number;
+}
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    council: '',
+    message: '',
+    captchaAnswer: ''
+  });
+  
+  const [captcha, setCaptcha] = useState<CaptchaData>({ question: '', answer: 0 });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Generate a simple math captcha
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const operations = ['+', '-', '*'];
+    const operation = operations[Math.floor(Math.random() * operations.length)];
+    
+    let answer: number;
+    let question: string;
+    
+    switch (operation) {
+      case '+':
+        answer = num1 + num2;
+        question = `${num1} + ${num2}`;
+        break;
+      case '-':
+        // Ensure positive result
+        const larger = Math.max(num1, num2);
+        const smaller = Math.min(num1, num2);
+        answer = larger - smaller;
+        question = `${larger} - ${smaller}`;
+        break;
+      case '*':
+        answer = num1 * num2;
+        question = `${num1} × ${num2}`;
+        break;
+      default:
+        answer = num1 + num2;
+        question = `${num1} + ${num2}`;
+    }
+    
+    setCaptcha({ question, answer });
+  };
+
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          captcha
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          council: '',
+          message: '',
+          captchaAnswer: ''
+        });
+        generateCaptcha(); // Generate new captcha
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Failed to submit form');
+        if (result.error?.includes('captcha')) {
+          generateCaptcha(); // Generate new captcha on captcha error
+        }
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please try again.');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="container mx-auto px-4 py-6 flex items-center justify-between">
@@ -80,7 +193,23 @@ export default function ContactPage() {
                 <CardTitle className="text-center">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
+                {submitStatus === 'success' && (
+                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
+                    <p className="text-green-800 text-center">
+                      Thank you! Your message has been sent successfully.
+                    </p>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+                    <p className="text-red-800 text-center">
+                      {errorMessage}
+                    </p>
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -90,6 +219,8 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         required
                         className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                       />
@@ -102,6 +233,8 @@ export default function ContactPage() {
                         type="email"
                         id="email"
                         name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         required
                         className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                       />
@@ -116,6 +249,8 @@ export default function ContactPage() {
                       type="text"
                       id="council"
                       name="council"
+                      value={formData.council}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                   </div>
@@ -128,14 +263,37 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       rows={5}
+                      value={formData.message}
+                      onChange={handleInputChange}
                       required
                       className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                       placeholder="Tell us how we can help..."
                     ></textarea>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
+                  <div>
+                    <label htmlFor="captchaAnswer" className="block text-sm font-medium mb-2">
+                      Human Verification: What is {captcha.question}? *
+                    </label>
+                    <input
+                      type="number"
+                      id="captchaAnswer"
+                      name="captchaAnswer"
+                      value={formData.captchaAnswer}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                      placeholder="Enter the answer"
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full" 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
