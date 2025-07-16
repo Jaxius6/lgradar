@@ -28,33 +28,7 @@ const privacyPrinciples = [
 
 export default function PrivacyPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <h1 className="text-xl font-bold">LG Radar</h1>
-          </Link>
-          <nav className="hidden md:flex gap-4 items-center">
-            <Button variant="ghost" asChild>
-              <Link href="/about">About Us</Link>
-            </Button>
-            <Button variant="ghost" asChild>
-              <Link href="/#pricing">Pricing</Link>
-            </Button>
-            <Button variant="ghost" asChild>
-              <Link href="/privacy">Privacy</Link>
-            </Button>
-            <Button variant="ghost" asChild>
-              <Link href="/contact">Contact</Link>
-            </Button>
-            <Button asChild>
-              <Link href="https://wa.lgradar.com.au">Sign In</Link>
-            </Button>
-          </nav>
-        </div>
-      </header>
-
-      <main className="flex-grow">
+    <>
         <section className="container mx-auto px-4 py-20">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
@@ -261,8 +235,7 @@ export default function PrivacyPage() {
                 <div className="space-y-2 text-muted-foreground">
                   <p><strong>Email:</strong> lgradarwa@gmail.com.au</p>
                   <p><strong>Phone:</strong> +61 427 931 745</p>
-                  <p><strong>Address:</strong> Level 5, 123 St Georges Terrace, Perth WA 6000</p>
-                </div>
+                  </div>
               </CardContent>
             </Card>
           </div>
@@ -277,15 +250,6 @@ export default function PrivacyPage() {
             </Button>
           </div>
         </section>
-      </main>
-
-      <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
-        <div className="container mx-auto px-4">
-          <p>© {new Date().getFullYear()} LG Radar. All rights reserved.</p>
-          <p className="mt-2">ABN: 803 402 939 44</p>
-          <p className="mt-2">Made in WA with ❤️</p>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
