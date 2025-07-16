@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Shield, Zap, Crown } from "lucide-react";
+import { CheckCircle, Shield, Crown } from "lucide-react";
 import Link from "next/link";
 import RadarAnimation from "@/components/RadarAnimation";
 
 const features = [
   {
-    icon: <Zap className="h-6 w-6" />,
+    icon: <CheckCircle className="h-6 w-6" />,
     title: "Daily Email Alerts",
     description: "Summarised WA Gazette updates in your inbox by 8am.",
   },
@@ -22,7 +22,7 @@ const features = [
       "Transparent timelines for every piece of subsidiary legislation.",
   },
   {
-    icon: <Zap className="h-6 w-6" />,
+    icon: <Shield className="h-6 w-6" />,
     title: "Audit & Action Logs",
     description: "Know who reviewed what — and what’s left.",
   },
@@ -64,6 +64,9 @@ export default function Home() {
         <nav className="hidden md:flex gap-4 items-center">
           <Button variant="ghost" asChild>
             <Link href="/about">About Us</Link>
+          </Button>
+          <Button variant="ghost" asChild>
+            <Link href="#pricing">Pricing</Link>
           </Button>
           <Button variant="ghost" asChild>
             <Link href="/privacy">Privacy Policy</Link>
@@ -176,7 +179,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-20">
+        <section id="pricing" className="container mx-auto px-4 py-20">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold">Pricing Plans</h3>
             <p className="text-xl mt-4 text-muted-foreground">
@@ -316,7 +319,7 @@ export default function Home() {
 
       <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p>© 2025 LG Radar. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} LG Radar. All rights reserved.</p>
           <p className="mt-2">ABN: 803 402 939 44</p>
           <p className="mt-2">Made in WA with ❤️</p>
         </div>

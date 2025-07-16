@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import confetti from 'canvas-confetti';
@@ -152,8 +152,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Zap className="h-8 w-8 text-primary" />
+        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <h1 className="text-xl font-bold">LG Radar</h1>
         </Link>
         <nav className="hidden md:flex gap-4 items-center">
@@ -366,7 +365,7 @@ export default function ContactPage() {
 
       <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p>© 2025 LG Radar. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} LG Radar. All rights reserved.</p>
           <p className="mt-2">ABN: 803 402 939 44</p>
           <p className="mt-2">Made in WA with ❤️</p>
         </div>

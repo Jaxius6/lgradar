@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Shield, Eye, Lock, Users } from "lucide-react";
+import { Shield, Eye, Lock, Users } from "lucide-react";
 import Link from "next/link";
 
 const privacyPrinciples = [
@@ -30,8 +30,7 @@ export default function PrivacyPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Zap className="h-8 w-8 text-primary" />
+        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <h1 className="text-xl font-bold">LG Radar</h1>
         </Link>
         <nav className="hidden md:flex gap-4 items-center">
@@ -61,7 +60,7 @@ export default function PrivacyPage() {
               use, and protect your information when you use LG Radar.
             </p>
             <p className="text-sm text-muted-foreground mt-4">
-              Last updated: January 1, 2025
+              Last updated: July 1, 2025
             </p>
           </div>
 
@@ -255,8 +254,8 @@ export default function PrivacyPage() {
                   If you have any questions about this privacy policy or our data practices, please contact us:
                 </p>
                 <div className="space-y-2 text-muted-foreground">
-                  <p><strong>Email:</strong> privacy@lgradar.com.au</p>
-                  <p><strong>Phone:</strong> +61 8 9000 0000</p>
+                  <p><strong>Email:</strong> lgradarwa@gmail.com.au</p>
+                  <p><strong>Phone:</strong> +61 427 931 745</p>
                   <p><strong>Address:</strong> Level 5, 123 St Georges Terrace, Perth WA 6000</p>
                 </div>
               </CardContent>
@@ -277,7 +276,7 @@ export default function PrivacyPage() {
 
       <footer className="bg-muted py-8 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p>© 2025 LG Radar. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} LG Radar. All rights reserved.</p>
           <p className="mt-2">ABN: 803 402 939 44</p>
           <p className="mt-2">Made in WA with ❤️</p>
         </div>
