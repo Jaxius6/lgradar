@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Shield, Crown } from "lucide-react";
 import Link from "next/link";
 import RadarAnimation from "@/components/RadarAnimation";
-import Image from "next/image";
 
 const features = [
   {
