@@ -89,18 +89,18 @@ export default function AboutPage() {
               {teamMembers.map((member, index) => (
                 <Card key={index}>
                   <CardHeader>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={80}
+                        height={80}
+                        className="rounded-full object-cover"
+                      />
                       <div>
                         <CardTitle>{member.name}</CardTitle>
                         <p className="text-primary font-semibold">{member.role}</p>
                       </div>
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={60}
-                        height={60}
-                        className="rounded-full object-cover"
-                      />
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -126,7 +126,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="flex justify-center mt-20">
+          <div className="flex justify-center mt-8">
             <div className="w-80 h-80">
               <RadarAnimation />
             </div>

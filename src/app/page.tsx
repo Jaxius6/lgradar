@@ -100,15 +100,6 @@ export default function Home() {
                 <p>Unsure if you&apos;re fully compliant?</p>
               </div>
             </div>
-            <div className="flex justify-center mt-12">
-              <Image
-                src="/crazypapers.png"
-                alt="Crazy Papers"
-                width={600}
-                height={400}
-                className="object-contain"
-              />
-            </div>
           </div>
         </section>
 
@@ -208,7 +199,7 @@ export default function Home() {
 
             <Card className="relative border-primary flex flex-col">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-medium">
                   Most Popular
                 </span>
               </div>
@@ -245,7 +236,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-8">
-                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 bg-green-500 hover:bg-green-600 text-white" asChild>
+                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 bg-green-500 hover:bg-green-600 text-black" asChild>
                     <Link href="https://wa.lgradar.com.au">Sign up</Link>
                   </Button>
                 </div>

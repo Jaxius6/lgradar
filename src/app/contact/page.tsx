@@ -168,7 +168,7 @@ export default function ContactPage() {
                   <h3 className="font-semibold mb-2">Email</h3>
                   <a
                     href="mailto:lgradarwa@gmail.com.au"
-                    className="text-primary hover:underline"
+                    className="text-foreground hover:underline"
                   >
                     lgradarwa@gmail.com.au
                   </a>
@@ -181,7 +181,7 @@ export default function ContactPage() {
                   <h3 className="font-semibold mb-2">Phone</h3>
                   <a
                     href="tel:+61427931745"
-                    className="text-primary hover:underline"
+                    className="text-foreground hover:underline"
                   >
                     +61 427 931 745
                   </a>
@@ -327,7 +327,7 @@ export default function ContactPage() {
                       <Button
                         type="submit"
                         size="lg"
-                        className="w-full bg-green-500 hover:bg-green-600 text-white"
+                        className="w-full bg-green-500 hover:bg-green-600 text-black"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Sending...' : 'Send Message'}
