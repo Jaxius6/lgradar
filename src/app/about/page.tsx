@@ -98,7 +98,7 @@ export default function AboutPage() {
                         alt={member.name}
                         width={100}
                         height={100}
-                        className="rounded-full object-cover"
+                        className="rounded-full object-cover team-member-image"
                       />
                     </div>
                   </CardHeader>
