@@ -327,7 +327,7 @@ export default function ContactPage() {
                       <Button
                         type="submit"
                         size="lg"
-                        className="w-full"
+                        className="w-full bg-green-500 hover:bg-green-600 text-white"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Sending...' : 'Send Message'}

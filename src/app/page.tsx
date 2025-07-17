@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Shield, Crown } from "lucide-react";
 import Link from "next/link";
 import RadarAnimation from "@/components/RadarAnimation";
+import Image from "next/image";
 
 const features = [
   {
@@ -99,6 +100,15 @@ export default function Home() {
                 <p>Unsure if you&apos;re fully compliant?</p>
               </div>
             </div>
+            <div className="flex justify-center mt-12">
+              <Image
+                src="/crazypapers.png"
+                alt="Crazy Papers"
+                width={600}
+                height={400}
+                className="object-contain"
+              />
+            </div>
           </div>
         </section>
 
@@ -163,14 +173,14 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="relative">
+            <Card className="relative flex flex-col">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl">Free</CardTitle>
                 <div className="text-4xl font-extrabold mt-4">$0</div>
                 <p className="text-muted-foreground">30 days free trial</p>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-4">
+              <CardContent className="flex-grow flex flex-col">
+                <ul className="space-y-4 flex-grow">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Basic gazette summaries
@@ -196,7 +206,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="relative border-primary">
+            <Card className="relative border-primary flex flex-col">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                   Most Popular
@@ -204,11 +214,11 @@ export default function Home() {
               </div>
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl">Monthly</CardTitle>
-                <div className="text-4xl font-extrabold mt-4">$197</div>
+                <div className="text-4xl font-extrabold mt-4">$297</div>
                 <p className="text-muted-foreground">/month per council</p>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-4">
+              <CardContent className="flex-grow flex flex-col">
+                <ul className="space-y-4 flex-grow">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Unlimited staff accounts
@@ -229,26 +239,30 @@ export default function Home() {
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Audit logs & CSV export
                   </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    Tabled papers
+                  </li>
                 </ul>
                 <div className="mt-8">
-                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95" asChild>
+                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 bg-green-500 hover:bg-green-600 text-white" asChild>
                     <Link href="https://wa.lgradar.com.au">Sign up</Link>
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="relative">
+            <Card className="relative flex flex-col">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl">Annual</CardTitle>
-                <div className="text-4xl font-extrabold mt-4">$1,970</div>
+                <div className="text-4xl font-extrabold mt-4">$2,970</div>
                 <p className="text-muted-foreground">/year per council</p>
                 <p className="text-sm text-green-600 font-medium mt-2">
                   Save 2 months!
                 </p>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-4">
+              <CardContent className="flex-grow flex flex-col">
+                <ul className="space-y-4 flex-grow">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Unlimited staff accounts

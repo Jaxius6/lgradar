@@ -2,22 +2,27 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import RadarAnimation from "@/components/RadarAnimation";
 
 const teamMembers = [
   {
     name: "Craig",
     role: "Co-Founder",
     description: "The political genius behind LG Radar. Deep understanding of local government processes and regulatory landscapes.",
+    image: "/craig.png",
   },
   {
     name: "Jack",
     role: "Co-Founder",
     description: "The technical wizard who brings the vision to life. Expert in building scalable compliance monitoring systems.",
+    image: "/jack.png",
   },
   {
     name: "Tilly",
     role: "Legal, Data & Compliance",
     description: "Expert in legal frameworks, data analysis, and compliance requirements. Ensures LG Radar meets all regulatory standards.",
+    image: "/tilly.png",
   },
 ];
 
@@ -35,6 +40,16 @@ export default function AboutPage() {
             </p>
           </div>
 
+          <div className="flex justify-center mb-12">
+            <Image
+              src="/papers.png"
+              alt="Papers"
+              width={600}
+              height={400}
+              className="object-contain"
+            />
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
             <div>
               <h3 className="text-2xl font-bold mb-6">Our Story</h3>
@@ -49,10 +64,6 @@ export default function AboutPage() {
                   critical disallowance deadlines, we knew councils deserved better. We built 
                   LG Radar to be the compliance radar every council needs—automated, intelligent, 
                   and always watching.
-                </p>
-                <p>
-                  Today, we&apos;re proud to serve councils across Western Australia, helping them 
-                  stay compliant while focusing on what matters most: serving their communities.
                 </p>
               </div>
             </div>
@@ -78,8 +89,19 @@ export default function AboutPage() {
               {teamMembers.map((member, index) => (
                 <Card key={index}>
                   <CardHeader>
-                    <CardTitle>{member.name}</CardTitle>
-                    <p className="text-primary font-semibold">{member.role}</p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle>{member.name}</CardTitle>
+                        <p className="text-primary font-semibold">{member.role}</p>
+                      </div>
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={60}
+                        height={60}
+                        className="rounded-full object-cover"
+                      />
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{member.description}</p>
@@ -101,6 +123,12 @@ export default function AboutPage() {
               <Button size="lg" variant="outline" asChild>
                 <Link href="/contact">Contact Us</Link>
               </Button>
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-20">
+            <div className="w-80 h-80">
+              <RadarAnimation />
             </div>
           </div>
         </section>
