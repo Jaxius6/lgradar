@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import RadarAnimation from "@/components/RadarAnimation";
 
 const teamMembers = [
   {
@@ -89,18 +88,18 @@ export default function AboutPage() {
               {teamMembers.map((member, index) => (
                 <Card key={index}>
                   <CardHeader>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle>{member.name}</CardTitle>
+                        <p className="text-foreground font-semibold">{member.role}</p>
+                      </div>
                       <Image
                         src={member.image}
                         alt={member.name}
-                        width={80}
-                        height={80}
+                        width={100}
+                        height={100}
                         className="rounded-full object-cover"
                       />
-                      <div>
-                        <CardTitle>{member.name}</CardTitle>
-                        <p className="text-primary font-semibold">{member.role}</p>
-                      </div>
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -126,11 +125,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="flex justify-center mt-8">
-            <div className="w-80 h-80">
-              <RadarAnimation />
-            </div>
-          </div>
         </section>
     </>
   );

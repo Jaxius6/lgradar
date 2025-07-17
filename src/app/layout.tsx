@@ -44,7 +44,7 @@ export default function RootLayout({
               <div className="container mx-auto px-4">
                 <p>© {new Date().getFullYear()} LG Radar. All rights reserved.</p>
                 <p className="mt-2">ABN: 803 402 939 44</p>
-                <p className="mt-2">Made in WA with <span className="text-green-500">💚</span></p>
+                <p className="mt-2">Made in WA with <span style={{color: '#00ff00'}}>💚</span></p>
               </div>
             </footer>
           </div>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Shield, Crown } from "lucide-react";
+import { CheckCircle, Shield, Crown, FileText, Clock, Mail, HelpCircle } from "lucide-react";
 import Link from "next/link";
 import RadarAnimation from "@/components/RadarAnimation";
 
@@ -83,19 +83,19 @@ export default function Home() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div className="flex flex-col items-center">
-                <div className="text-4xl mb-4">📄</div>
+                <FileText className="h-12 w-12 mb-4 text-muted-foreground" />
                 <p>Drowning in documents?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-4xl mb-4">⏰</div>
+                <Clock className="h-12 w-12 mb-4 text-muted-foreground" />
                 <p>Missed a disallowance notice?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-4xl mb-4">📧</div>
+                <Mail className="h-12 w-12 mb-4 text-muted-foreground" />
                 <p>Relying on one person&apos;s inbox?</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-4xl mb-4">❓</div>
+                <HelpCircle className="h-12 w-12 mb-4 text-muted-foreground" />
                 <p>Unsure if you&apos;re fully compliant?</p>
               </div>
             </div>
@@ -198,7 +198,7 @@ export default function Home() {
 
             <Card className="relative border-primary flex flex-col">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-[#00ff00] text-black px-3 py-1 rounded-full text-sm font-medium">
                   Most Popular
                 </span>
               </div>
@@ -235,7 +235,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-8">
-                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 bg-green-500 hover:bg-green-600 text-black" asChild>
+                  <Button size="lg" className="w-full transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 bg-[#00ff00] hover:bg-[#00dd00] text-black" asChild>
                     <Link href="https://wa.lgradar.com.au">Sign up</Link>
                   </Button>
                 </div>
@@ -247,7 +247,7 @@ export default function Home() {
                 <CardTitle className="text-2xl">Annual</CardTitle>
                 <div className="text-4xl font-extrabold mt-4">$2,970</div>
                 <p className="text-muted-foreground">/year per council</p>
-                <p className="text-sm text-green-600 font-medium mt-2">
+                <p className="text-sm font-medium mt-2" style={{color: '#00ff00'}}>
                   Save 2 months!
                 </p>
               </CardHeader>
